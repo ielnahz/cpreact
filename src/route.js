@@ -9,6 +9,13 @@ import RecordPage from './container/RecordPage';
 import AccountPage from './container/AccountPage';
 import './css/global.css';
 
+import UserCenter from './container/mine/UserCenter';
+import ModifyCapitalPwd from './container/mine/ModifyCapitalPwd';
+import ModifyLoginPwd from './container/mine/ModifyLoginPwd';
+import SetCapitalPwd from './container/mine/SetCapitalPwd';
+import AccountWithCash from './container/mine/AccountWithCash';
+import BindCard from './container/mine/BindCard';
+import AgentManage from './container/mine/AgentManage';
 const routes = (
     <Route history={hashHistory}>
         <Route path='/' component={App}>
@@ -18,6 +25,11 @@ const routes = (
                 <Route path='notice' component={NoticePage} />
                 <Route path='record' component={RecordPage} />
                 <Route path='account' component={AccountPage} />
+
+            </Route>
+            <Route path='/mine'>
+                <Route path='center' component={UserCenter}></Route>
+                <IndexRoute component={AgentManage}></IndexRoute>
             </Route>
         </Route>
     </Route>

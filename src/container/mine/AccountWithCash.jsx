@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router';
+import '../../css/mine/ModifyCapitalPwd.css';
 class AccountWithCash extends Component {
     constructor(props) {
         super(props);
@@ -17,25 +18,26 @@ class AccountWithCash extends Component {
     render() {
         return( 
             <div>
-                <header>
-                    <Link to=""><i></i></Link>
+                <header className="mine-header-return">
+                    <Link to=""><i className="icon-return">o</i></Link>
                     <div>账户提现</div>
                 </header>
-                <div>         
-                    <div>
-                        <div>提现银行</div>
-                        <input type="text"　/>
+                <div className="mine-content">         
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">提现银行</div>
+                        <input type="text" className="mine-input"　/>
                     </div>
-                    <div>
-                        <div>提现金额</div>
-                        <input type="text"　placeholder="请输入提现金额"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">提现金额</div>
+                        <input type="text"　placeholder="请输入提现金额" className="mine-input" />
                     </div>
-                    <div>
-                        <div>资金密码</div>
-                        <input type="text"　placeholder="请输入资金密码"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">资金密码</div>
+                        <input type="text"　placeholder="请输入资金密码" className="mine-input" />
                     </div>
+                    <button className="mine-input-button">提交</button>
                 </div>
-                <button>提交</button>
+                
             </div>
         );
     }

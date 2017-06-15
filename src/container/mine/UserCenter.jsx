@@ -1,110 +1,110 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router';
+import '../../css/mine/UserCenter.css';
 class UserCenter extends Component {
     constructor(props){
         super(props);
             this.state = {};
-        }
     }
         
     componentWillMount() {}
     componentDidMount() {}
     componentDidUpdate() {}
-    componentWillUnmount(){
+    componentWillUnmount() {
     }
-
     render() {
         return (
             <div>
-                <header>
-                    <div>我的</div>
-                    <i></i>
+                <header className="mine-header">
+                    <div className="mine-header-text">我的</div>
+                    <i className="icon">o</i>
                 </header>
-                <div>
-                    <div>
-                        <div>haha520</div>
-                        <div>0.000</div>
+                <div className="mine-content">
+                    <div className="mine-title">
+                        <div className="mine-title-name">haha520</div>
+                        <div className="mine-title-money">0.000</div>
                     </div>
-                    <ul className="content-ul">
+                    <ul className="mine-content-ul">
                         <Link to="">
-                            <li className=''>
-                                <i></i>
-                                <span>充值</span>
-                                <i></i>
+                            <li>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">充值</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         <Link to="">
                             <li>
-                                <i></i>
-                                <span>提现</span>
-                                <i><Link to=''></Link></i>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">提现</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                     </ul>
-                    <ul>
+                    <ul className="mine-content-ul">
                         <Link to="">
-                            <li>
-                                <i></i>
-                                <span>登录密码修改</span>
-                                <i></i>
+                            <li className="ul-icon">
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">登录密码修改</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         <Link to="">
-                            <li>
-                                <i></i>
-                                <span>资金密码修改</span>
-                                <i></i>
+                            <li className="ul-icon">
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">资金密码修改</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         <Link to="">
-                            <li>
-                                <i></i>
-                                <span>设置密码修改</span>
-                                <i></i>
+                            <li className="ul-icon">
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">设置密码修改</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         
                     </ul>
-                    <ul>
+                    <ul className="mine-content-ul">
                         <Link to="">
                             <li>
-                                <i></i>
-                                <span>银行卡管理</span>
-                                <i></i>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">银行卡管理</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         <Link to="">
                             <li>
-                                <i></i>
-                                <span>代理管理</span>
-                                <i></i>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">代理管理</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                     </ul>
-                    <ul>
+                    <ul className="mine-content-ul">
                         <Link to="">
                             <li>
-                                <i></i>
-                                <span>资金明细</span>
-                                <i></i>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">资金明细</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         <Link to="">
                             <li>
-                                <i></i>
-                                <span>盈亏报表</span>
-                                <i></i>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">盈亏报表</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>
                         <Link to="">
                             <li>
-                                <i></i>
-                                <span>团队报表</span>
-                                <i></i>
+                                <i className="ul-icon"></i>
+                                <div className="ul-text">团队报表</div>
+                                <i className="ul-to">></i>
                             </li>
                         </Link>  
                     </ul>
+                    <button className="mine-button">提交</button>
                 </div>
             </div>
         );

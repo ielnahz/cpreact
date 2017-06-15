@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router';
-class AgentManage extends Component {
+import '../../css/mine/ModifyCapitalPwd.css';
+class BindCard extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -14,46 +15,52 @@ class AgentManage extends Component {
     }
     componentWillUnmount(){
     }
+
     render() {
         return( 
             <div>
-                <header>
-                    <Link to=""><i></i></Link>
-                    <div>绑定银行卡</div>
+                <header className="mine-header-return">
+                    <Link to=""><i className="icon-return">o</i></Link>
+                    <div>代理管理</div>
                 </header>
-                <div>         
-                    <div>
-                        <div>真实姓名</div>
-                        <input type="text"　placeholder="请输入真实姓名"/>
+                <div className="mine-content">
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">注册会员</div>
+                        <div></div>
+                    </div>         
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">用户名</div>
+                        <input type="text"　placeholder="请输入用户名" className="mine-input" />
                     </div>
-                    <div>
-                        <div>开户银行</div>
-                        <input type="text"　placeholder="农业银行"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">昵称</div>
+                        <input type="text"　placeholder="请输入昵称" className="mine-input" />
                     </div>
-                    <div>
-                        <div>开户支行</div>
-                        <input type="text"　placeholder="请输入开户支行"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">用户密码</div>
+                        <input type="text"　placeholder="请输入用户密码" className="mine-input" />
                     </div>
-                    <div>
-                        <div>开户省份</div>
-                        <input type="text"　placeholder="北京"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">确认密码</div>
+                        <input type="text"　placeholder="请确认用户密码" className="mine-input" />
                     </div>
-                    <div>
-                        <div>开户城市</div>
-                        <input type="text"　placeholder="北京市"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">返点</div>
+                        <input type="text"　placeholder="请输入返点，返点0-7.80" className="mine-input" />
                     </div>
-                    <div>
-                        <div>银行卡号</div>
-                        <input type="text" placeholder="请输入银行卡号"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">棋牌返点</div>
+                        <input type="text" placeholder="请输入返点，返点0-0.00" className="mine-input" />
                     </div>
-                    <div>
-                        <div>资金密码</div>
-                        <input type="text" placeholder="请输入资金密码"/>
+                    <div className="mine-input-box">
+                        <div className="mine-input-text">真人返点</div>
+                        <input type="text" placeholder="请输入返点，返点0-0.00" className="mine-input" />
                     </div>
+                    <button className="mine-input-button">提交</button>
                 </div>
-                <button>绑定</button>
+                
             </div>
         );
     }
 }
-export default connect()(AgentManage);
+export default connect()(BindCard);
