@@ -1,0 +1,30 @@
+.lottery-footer {
+    height: 0.87rem;
+    background: #404040;
+}
+.lottery-footer-ul {
+    width: 100%;
+}
+.lottery-footer-ul:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.lottery-footer-ul li {
+    width: 25%;
+    float: left;
+}
+.lottery-footer-img {
+    height: 0.35rem;
+    padding-top: 0.15rem;
+}
+.lottery-footer-text {
+    height: 0.36rem;
+    font-size: 0.18rem;
+    line-height: 0.36rem;
+    text-align: center;
+    color: #929292;
+}
+.lottery-footer-text-active {
+    color: #ffcf44;
+}

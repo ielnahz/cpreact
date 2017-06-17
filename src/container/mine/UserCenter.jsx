@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router';
-import '../../css/mine/UserCenter.css';
+import '../../css/mine.css';
 class UserCenter extends Component {
     constructor(props){
         super(props);

@@ -1,4 +1,3 @@
-
 .mine-header {
     font-size: .375rem;
     font-weight: 500;
@@ -10,9 +9,24 @@
     position: relative;
     
 }
+.mine-header-return {
+    font-size: .375rem;
+    font-weight: 500;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #b9afaf;
+    text-align: center;
+    position: relative;
+}
 .icon {
     position:absolute;
     right: 5px;
+    top: 5px;
+}
+.icon-return {
+    position:absolute;
+    left: 5px;
     top: 5px;
 }
 .mine-title {
@@ -34,8 +48,39 @@
     font-weight: 500;
     color: #e0ee22;
 }
+.mine-input {
+    width: 86%;
+    margin: 0 auto;
+    display: block;
+    height: 0.5rem;
+    border: 1px solid #b9afaf;
+    border-radius: 2px;
+    font-size: 0.25rem;
+    padding: 0.15rem 0.3rem;
+    color: #b9afaf;
+}
+.mine-input-text {
+    height: .8rem;
+    font-size: .23rem;
+    line-height: 0.8rem;
+    padding-left: 0.33rem;
+    font-weight: 500;
+}
+.mine-input-button {
+    width: 94%;
+    height: 1rem;
+    background: #e0ee22;
+    border: 0;
+    font-size: 0.28rem;
+    margin: 0.35rem auto 0.15rem;
+    border-radius: 2px;
+    display: block;
+}
 .mine-content {
     background: #f7f7f7;
+}
+.mine-input-box {
+    margin-bottom: 0.5rem;
 }
 .mine-content-ul {
     border: 1px solid #b9afaf;

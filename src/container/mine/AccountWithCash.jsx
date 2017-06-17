@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router';
-import '../../css/mine/ModifyCapitalPwd.css';
+import '../../css/mine.css';
 class AccountWithCash extends Component {
     constructor(props) {
         super(props);
