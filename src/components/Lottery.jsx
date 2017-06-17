@@ -16,8 +16,13 @@ class Lottery extends Component {
 
     render() {
         const {num} = this.props;
-        return( <div className="msg">
-            
+        let numarr = num.split('');
+        return( <div className="msg clear">
+            {
+                numarr.map((numitem, index) => {
+                    return <div className="numitem fl">{numitem}</div>
+                });
+            }
         </div>)
     }
 }
