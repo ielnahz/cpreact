@@ -5,7 +5,10 @@ import { Link } from 'react-router';
 import Msg from './hall/Msg';
 import MyLottery from './hall/MyLottery';
 
-class HomePage extends Component {
+let allLottery = [{
+    name: '重庆时彩'
+}];
+class HallPage extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -16,8 +19,6 @@ class HomePage extends Component {
     }
     componentDidUpdate() {
     }
-    componentWillUnmount(){
-    }
 
     render() {
         return( <div className="hall">
@@ -26,11 +27,10 @@ class HomePage extends Component {
                 <i className="service-icon"></i>
             </header>
             <div className="content">
-                <Slider></Slider>
                 <Msg></Msg>
-                <MyLottery></MyLottery>
+                <MyLottery mylotterylist={allLottery}></MyLottery>
             </div>
         </div>)
     }
 }
-export default connect()(HomePage);
+export default connect()(HallPage);

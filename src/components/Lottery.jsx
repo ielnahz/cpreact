@@ -20,8 +20,8 @@ class Lottery extends Component {
         return( <div className="msg clear">
             {
                 numarr.map((numitem, index) => {
-                    return <div className="numitem fl">{numitem}</div>
-                });
+                    return <div key={index} className="numitem fl">{numitem}</div>
+                })
             }
         </div>)
     }

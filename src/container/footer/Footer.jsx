@@ -17,29 +17,29 @@ class Footer extends Component {
         return (
             <div className="lottery-footer">
                 <ul className="lottery-footer-ul">
-                    <Link to="/hall">
+                    <Link to="/home">
                         <li>
-                            <div className="lottery-footer-img">
-                                {/*<img src="../../img/mine.png" alt=""/>*/}
+                            <div className="lottery-footer-img footer-hall">
+                                <img src={require('../../img/mine.png')}/>
                             </div>
                             <div className="lottery-footer-text">购彩大厅</div>
                         </li>
                     </Link>
-                    <Link to="/notice">
+                    <Link to="/home/notice">
                         <li>
-                            <div className="lottery-footer-img"></div>
+                            <div className="lottery-footer-img footer-notice"></div>
                             <div className="lottery-footer-text lottery-footer-text-active">开奖公告</div>
                         </li>
                     </Link>
-                    <Link to="/query">
+                    <Link to="/home/query">
                         <li>
-                            <div className="lottery-footer-img"></div>
+                            <div className="lottery-footer-img footer-record"></div>
                             <div className="lottery-footer-text">记录查询</div>
                         </li>
                     </Link>
-                    <Link to="/mine">
+                    <Link to="/home/mine">
                         <li>
-                            <div className="lottery-footer-img"></div>
+                            <div className="lottery-footer-img footer-account"></div>
                             <div className="lottery-footer-text">我的账户</div>
                         </li>
                     </Link>

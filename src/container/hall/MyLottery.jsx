@@ -22,7 +22,7 @@ class MyLottery extends Component {
             <div className="mylotterylist">
                 {
                     mylotterylist.map((value, index) => {
-                        return (<AllLotteryItem icon="" name=""></AllLotteryItem>)
+                        return (<AllLotteryItem key={index} icon="" name=""></AllLotteryItem>)
                     })
                 }
             </div>
