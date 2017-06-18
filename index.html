@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
   <title>iTunes Search by React</title>
   <script type="text/javascript">
         (function(doc, win) {
@@ -9,8 +10,8 @@
                 resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
             var recalc = function() {
                 var width = docEl.clientWidth;
-                if (width < 375) {
-                    width = 375;
+                if (width < 300) {
+                    width = 300;
                 }
                 if(width>414){
                   width=414;
