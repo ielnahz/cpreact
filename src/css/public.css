@@ -1,0 +1,26 @@
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.msg .numitem {
+    width: 0.44rem;
+    height: 0.44rem;
+    border-radius: 50%;
+    margin-right: 0.03rem;
+    
+    font-size: 0.2rem;
+    line-height: 0.44rem;
+    text-align: center;
+}
+.msg .bgRed {
+    background: #f11e24;
+    color: #fff;
+}
+.msg .bgYellow {
+    background: #fbce3f;
+    color: #421f0b;
+}
+.msg .fl {
+    float: left;
+}

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { Link } from 'react-router';
+import { Link,hashHistory } from 'react-router';
 import '../../css/mine.css';
+import HeaderBack from '../header/HeaderBack';
 class BindCard extends Component {
     constructor(props) {
         super(props);
@@ -15,14 +16,14 @@ class BindCard extends Component {
     }
     componentWillUnmount(){
     }
-
+    changeBack() {
+        hashHistory.pushState(null, '/mine');
+        console.log('dianji');
+    }
     render() {
         return( 
             <div>
-                <header className="mine-header-return">
-                    <Link to=""><i className="icon-return">o</i></Link>
-                    <div>代理管理</div>
-                </header>
+                <HeaderBack text='代理管理' onClick={() => {this.changeBack()}}></HeaderBack>
                 <div className="mine-content">
                     <div className="mine-input-box">
                         <div className="mine-input-text">注册会员</div>

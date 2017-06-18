@@ -21,10 +21,11 @@ class HomePage extends Component {
 
     render() {
         const {children} = this.props;
-        return( <div>
-            {children}
-            <Footer></Footer>
-        </div>)
+        return(
+            <div>
+                {children}
+            </div>
+        );
     }
 }
 export default connect()(HomePage);

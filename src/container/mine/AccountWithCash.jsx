@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { Link } from 'react-router';
+import { Link,hashHistory } from 'react-router';
+import HeaderBack from '../header/HeaderBack';
 import '../../css/mine.css';
 class AccountWithCash extends Component {
     constructor(props) {
@@ -15,13 +16,14 @@ class AccountWithCash extends Component {
     }
     componentWillUnmount(){
     }
+    changeBack() {
+        hashHistory.pushState(null, '/mine');
+        console.log('dianji');
+    }
     render() {
         return( 
             <div>
-                <header className="mine-header-return">
-                    <Link to=""><i className="icon-return">o</i></Link>
-                    <div>账户提现</div>
-                </header>
+                <HeaderBack text='账户提现' onClick={() => {this.changeBack()}}></HeaderBack>
                 <div className="mine-content">         
                     <div className="mine-input-box">
                         <div className="mine-input-text">提现银行</div>

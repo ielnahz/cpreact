@@ -14,32 +14,44 @@ import ModifyCapitalPwd from './container/mine/ModifyCapitalPwd';
 import ModifyLoginPwd from './container/mine/ModifyLoginPwd';
 import SetCapitalPwd from './container/mine/SetCapitalPwd';
 import AccountWithCash from './container/mine/AccountWithCash';
+import AccountRecharge from './container/mine/AccountRecharge';
 import BindCard from './container/mine/BindCard';
 import AgentManage from './container/mine/AgentManage';
-import Footer from './container/footer/Footer';
+import Hall from './container/hall/Hall';
+import Notice from './container/notice/Notice';
 const routes = (
     <Route history={hashHistory}>
         <Route path='/' component={App}>
             <Route path='/login'  component={LoginPage} />
-            <Route path='/home'  component={HomePage} >
+            <Route path='/hall'  component={HomePage} >
                 <IndexRoute component={HallPage} />
                 <Route path='notice' component={NoticePage} />
                 <Route path='record' component={RecordPage} />
                 <Route path='account' component={AccountPage} />
+            </Route>
+            <Route path="/home" component={Hall}>
 
             </Route>
-            <Route path="/hall" component={AccountPage}>
-
-            </Route>
-            <Route path="/notice" component={AgentManage}>
+            <Route path="/notice" component={Notice}>
 
             </Route>
             <Route path="query" component={BindCard}>
 
             </Route>
             <Route path='/mine'>
-                <Route path='center' component={UserCenter}></Route>
-                <IndexRoute component={Footer}></IndexRoute>
+                
+                <IndexRoute component={UserCenter}></IndexRoute>
+                <Route path='recharge' component={AccountRecharge}></Route>
+                <Route path="cash" component={AccountWithCash} />
+                <Route path='loginpwd' component={ModifyLoginPwd}></Route>
+                <Route path='capitalpwd' component={ModifyCapitalPwd}></Route>
+                <Route path='setpwd' component={SetCapitalPwd}></Route>
+
+                <Route path='card' component={BindCard}></Route>
+                <Route path="agent" component={AgentManage} />
+                {/*<Route path='' component={}></Route>
+                <Route path='' component={}></Route>
+                <Route path='' component={}></Route>*/}
             </Route>
         </Route>
     </Route>

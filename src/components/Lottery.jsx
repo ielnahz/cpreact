@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import '../css/public.css';
 class Lottery extends Component {
     constructor(props) {
         super(props);
@@ -15,12 +15,12 @@ class Lottery extends Component {
     }
 
     render() {
-        const {num} = this.props;
-        let numarr = num.split('');
+        const {num, bg} = this.props;
+        // let numarr = num.split('');
         return( <div className="msg clear">
             {
-                numarr.map((numitem, index) => {
-                    return <div key={index} className="numitem fl">{numitem}</div>
+                num.map((numitem, index) => {
+                    return <div key={index} className={`numitem fl ${bg ? 'bgRed': 'bgYellow'}`}>{numitem}</div>
                 })
             }
         </div>)
