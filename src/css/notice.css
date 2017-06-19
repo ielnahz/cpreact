@@ -3,7 +3,7 @@
 }
 .notice-content .notice-content-ul {
     width: calc( 100% - 0.38rem );
-    border-top: 1px solid #dcdcdc;
+    /*border-top: 1px solid #dcdcdc;*/
     padding: 0 0.18rem;
 }
 .notice-content .notice-content-ul .li-bottom {

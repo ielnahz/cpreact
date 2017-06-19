@@ -32,7 +32,7 @@
 .mine-title {
     width: 100%;
     height: 1rem;
-    border-top: 1px solid #e2e2e2;
+    /*border-top: 1px solid #e2e2e2;*/
     border-bottom: 1px solid #e2e2e2;
     text-align: center; 
     padding: 0.16rem 0;
@@ -84,8 +84,35 @@
 .mine-content {
     background: #f7f7f7;
 }
+.mine-vip {
+    height: .74rem;
+    width: 100%;
+    font-size: .2rem;
+    line-height: .74rem;
+    font-weight: 500;
+    color: #090909;
+    text-align: center;
+}
+.mine-vip-borderB {
+    height: 0.08rem;
+    width: 100%;
+    background: #fdcd3d;
+}
 .mine-input-box {
     margin-bottom: 0.41rem;
+    position: relative;
+}
+.mine-input-box .mine-copy-button {
+    position: absolute;
+    right: 0.28rem;
+    bottom: 0.1rem;
+    height: 0.54rem;
+    width: 0.7rem;
+    text-align: center;
+    line-height: 0.54rem;
+    background: #fdcd3d;
+    border: 0;
+    border-radius: 2px;
 }
 .mine-content-ul {
     border: 1px solid #e2e2e2;
@@ -134,4 +161,34 @@
     border: 0;
     font-size: 0.2rem;
     margin: 0.35rem 0 0.15rem;
+}
+.mine-isActive {
+    display: none;
+}
+.mine-tabT {
+    width: 100%;
+    height: 0.74rem;
+    line-height: 0.74rem;
+    font-size: 0.22rem;
+    color: #383838;
+    background: #f7f7f7;
+    margin-bottom: 0.12rem;
+    /*border-bottom: 8px solid #f3d344;*/
+}
+.mine-tabT:after {
+    content: "";
+    clear: both;
+    display: block; 
+}
+.mine-tabT .mine-tabT-li {
+    width: 50%;
+    float: left;
+    text-align: center;
+    border-bottom: 8px solid #f7f7f7;
+}
+.mine-tabT .mine-tabT-li-active {
+    border-bottom-color: #f3d344;
+}
+.mine-borderTop {
+    border-top: 2px solid #e2e2e2;
 }

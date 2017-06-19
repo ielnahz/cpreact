@@ -26,8 +26,8 @@ class BindCard extends Component {
                 <HeaderBack text='代理管理' onClick={() => {this.changeBack()}}></HeaderBack>
                 <div className="mine-content">
                     <div className="mine-input-box">
-                        <div className="mine-input-text">注册会员</div>
-                        <div></div>
+                        <div className="mine-vip">注册会员</div>
+                        <div className="mine-vip-borderB"></div>
                     </div>         
                     <div className="mine-input-box">
                         <div className="mine-input-text">用户名</div>

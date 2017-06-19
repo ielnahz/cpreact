@@ -1,6 +1,7 @@
 .lottery-header,.lottery-header-back  {
     height: 0.8rem;
     position: relative;
+    border-bottom: 1px solid #dcdcdc;
 }
 .lottery-header div,.lottery-header-back div {
     height: 100%;
