@@ -13,13 +13,27 @@ class App extends Component{
         };
     }
     componentDidMount(){
+        let num = 0;
+        let pathname = this.props.location.pathname;
+        if(pathname === '/notice') {
+            num = 1;
+        } else if(pathname === '/record') {
+            num = 2;
+        } else if(pathname === '/mine') {
+            num = 3;
+        }
+        this.setState({
+            numTab: num
+        });
+        this.node.scrollIntoView();
+    }
+    componentDidUpdate() {
+        this.node.scrollIntoView();
     }
     getChildContext() {
         return { urlQuery: this.props.location.query }
     }
     changeTab(num) {
-        console.log('num', num);
-        const {numTab} = this.state;
         this.setState({
             numTab: num
         });
@@ -28,7 +42,7 @@ class App extends Component{
         const {children} = this.props;
         const {numTab} = this.state;
         return(
-            <div>
+            <div ref={node=>this.node=node}>
                 <Header numTab={numTab}></Header>  
                 {children}
                 <Footer changeTab={(num) => {this.changeTab(num)}} numTab={numTab}></Footer>

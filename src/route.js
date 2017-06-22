@@ -21,37 +21,31 @@ import Hall from './container/hall/Hall';
 import Notice from './container/notice/Notice';
 const routes = (
     <Route history={hashHistory}>
-        <Route path='/' component={App}>
-            <Route path='/login'  component={LoginPage} />
-            <Route path='/hall'  component={HomePage} >
-                <IndexRoute component={HallPage} />
-                <Route path='notice' component={NoticePage} />
-                <Route path='record' component={RecordPage} />
-                <Route path='account' component={AccountPage} />
-            </Route>
+        <Route path="/" component={App}>
+            <Route path="/login"  component={LoginPage} />
             <Route path="/home" component={Hall}>
 
             </Route>
             <Route path="/notice" component={Notice}>
 
             </Route>
-            <Route path="query" component={BindCard}>
+            <Route path="/query" component={BindCard}>
 
             </Route>
-            <Route path='/mine'>
+            <Route path="/mine">
                 
                 <IndexRoute component={UserCenter}></IndexRoute>
-                <Route path='recharge' component={AccountRecharge}></Route>
+                <Route path="recharge" component={AccountRecharge}></Route>
                 <Route path="cash" component={AccountWithCash} />
-                <Route path='loginpwd' component={ModifyLoginPwd}></Route>
-                <Route path='capitalpwd' component={ModifyCapitalPwd}></Route>
-                <Route path='setpwd' component={SetCapitalPwd}></Route>
+                <Route path="loginpwd" component={ModifyLoginPwd}></Route>
+                <Route path="capitalpwd" component={ModifyCapitalPwd}></Route>
+                <Route path="setpwd" component={SetCapitalPwd}></Route>
 
-                <Route path='card' component={BindCard}></Route>
+                <Route path="card" component={BindCard}></Route>
                 <Route path="agent" component={AgentManage} />
-                {/*<Route path='' component={}></Route>
-                <Route path='' component={}></Route>
-                <Route path='' component={}></Route>*/}
+                {/*<Route path="" component={}></Route>
+                <Route path="" component={}></Route>
+                <Route path="" component={}></Route>*/}
             </Route>
         </Route>
     </Route>
