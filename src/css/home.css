@@ -64,6 +64,15 @@
     text-align: center;
     background: #fbce3f;
 }
+.hall-content .hall-add-ticket {
+    height: 0.7rem;
+    width: 100%;
+    font-size: 0.24rem;
+    color: #554e46;
+    line-height: 0.7rem;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
 .hall-content .hall-mine-ticket-img {  
     width: 100%;
     /*border-bottom: 1px solid #f0f0f0;*/
@@ -89,6 +98,51 @@
     height: 100%;
     font-size: 0.22rem;
     margin-left: 1.16rem;
+}
+.hall-content .hall-mine-ticket-img li .tickect-close-name {
+    height: 100%;
+    margin-left: 1.16rem;
+    margin-top: 0.18rem;
+}
+.hall-content .hall-mine-ticket-img li .tickect-close-name .tickect-name-title{
+    font-size: 0.23rem;
+    color: #616161;
+}
+.hall-content .hall-mine-ticket-img li .tickect-close-name .tickect-name-text{
+    font-size: 0.18rem;
+    color: #919193;
+}
+.hall-content .hall-mine-ticket-img li .tickect-close-button {
+    position: absolute;
+    height: 0.27rem;
+    width: 0.27rem;
+    right: 0.1rem;
+    bottom: 0.4rem;
+    font-size: 0.14rem;
+    color: #000;
+    background: #aaaaaa;
+    border-radius: 50%;
+    line-height: .24rem;
+    text-align: center;
+}
+.hall-content .hall-mine-ticket-img li .tickect-add-button {
+    position: absolute;
+    height: 0.44rem;
+    width: 0.26rem;
+    right: 0.1rem;
+    bottom: 0.4rem;
+    font-size: 0.12rem;
+    color: #000;
+    background: #fdca3b;
+    border-radius: 10px;
+    line-height: 0.44rem;
+    text-align: center;
+}
+.hall-content .hall-mine-ticket-img li .tickect-close-button .tickect-close-button-img {
+    height: 0.14rem;
+    width: 0.14rem;
+    display: block;
+    margin: 0 auto;
 }
 .hall-content .tickect-add {
     width: 100%;

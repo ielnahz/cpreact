@@ -19,12 +19,14 @@ import BindCard from './container/mine/BindCard';
 import AgentManage from './container/mine/AgentManage';
 import Hall from './container/hall/Hall';
 import Notice from './container/notice/Notice';
+import HallAdd from './container/hall/HallAdd';
 const routes = (
     <Route history={hashHistory}>
         <Route path="/" component={App}>
             <Route path="/login"  component={LoginPage} />
-            <Route path="/home" component={Hall}>
-
+            <Route path="/home">
+                <IndexRoute component={Hall}></IndexRoute>
+                <Route path="add" component={HallAdd}></Route>
             </Route>
             <Route path="/notice" component={Notice}>
 
