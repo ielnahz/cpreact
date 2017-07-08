@@ -44,7 +44,7 @@ class Hall extends Component {
             <div>
                 <Header numTab='0'></Header>
                 <div className="hall-content">
-                    <img src={require('../../img/hall-header.png')} className="home-hall-bg" />
+                    <span className="home-hall-bg" ></span>
                     <div className="home-hall-now">
                         <div className="left">
                             <div className="hall-name-title">
