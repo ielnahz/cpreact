@@ -4,9 +4,10 @@ import { Router, hashHistory } from 'react-router';
 import Routes from './route';
 import { Provider } from 'react-redux'
 import configureStore from './store';
-Object.assign = require('object-assign');
 require('es6-promise').polyfill();
-const store = configureStore()
+require('babel-polyfill');
+Object.assign = require('object-assign');
+const store = configureStore();
 
 const rootEle = document.getElementById('app');
 render(

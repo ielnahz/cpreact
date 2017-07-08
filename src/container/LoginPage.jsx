@@ -2,27 +2,52 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import { Link } from 'react-router';
+import { fetchLoginData } from '../actions/loginAction';
 import "../css/login.css";
 class LoginPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            userName: '',
+            pwd: ''
+        };
     }
     componentWillMount() {
     }
     componentDidMount(){
     }
     componentDidUpdate() {
+        const { userinfo } = this.props;
     }
     componentWillUnmount(){
     }
-    shouldComponentUpdate(nextprops, nextstate) {
 
+    loginHandle(){
+        const { store } = this.context;
+        const { userName, pwd } = this.state;
+        console.log(store);
+        store.dispatch(fetchLoginData(userName, pwd));
+    }
+
+    setUserName(e){
+        let userName = e.target.value;
+        console.log(e);
+        console.log(userName);
+        this.setState({
+            userName: userName
+        })
+    }
+
+    setPwd(e){
+        let pwd = e.target.value;
+        this.setState({
+            pwd: pwd
+        })
     }
 
     render() {
-        return(
-        <div className="logo-content">
+        const { userName, pwd } = this.state;
+        return(<div className="logo-content">
             <div className="logo">
                 <img src={require('../img/login.png')} className="logo-img"/>
             </div>
@@ -30,12 +55,12 @@ class LoginPage extends Component {
                 <div className="username">
                     {/*<i className="username-icon"></i>*/}
                     <img src={require('../img/logo-mine.png')} className="username-icon"/>
-                    <input type="text" name="username" value="" placeholder="请输入账户名称" className="username-input"/>
+                    <input type="text" name="username" placeholder="请输入账户名称" className="username-input" onChange={(ev)=>this.setUserName(ev)} value={userName}/>
                 </div>
                 <div className="password">
                     {/*<i className="password-icon"></i>*/}
                     <img src={require('../img/logo-lock.png')} className="password-icon"/>
-                    <input type="password" name="password" placeholder="请输入账户密码" className="password-input"/>
+                    <input type="password" name="password" placeholder="请输入账户密码" className="password-input" onChange={(ev)=>this.setPwd(ev)} value={pwd}/>
                 </div>
                 <div className="route">
                     <input type="text" className="route-input" defaultValue="线路一"/>
@@ -48,8 +73,9 @@ class LoginPage extends Component {
     }
 }
 function mapStateToProps(state) {
-    const {homeReducer} = state;
+    const {loginReducer} = state;
     return {
+        userinfo: loginReducer.userinfo
     };
 }
 LoginPage.contextTypes = {
@@ -57,6 +83,7 @@ LoginPage.contextTypes = {
 };
 function mapDispatchToProps(dispatch) {
     return {
+        getLoginData: bindActionCreators(fetchLoginData, dispatch)
     }
 }
 function mergeProps(stateProps, dispatchProps, ownProps) {
