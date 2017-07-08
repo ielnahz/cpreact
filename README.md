@@ -1,7 +1,7 @@
 ## Installation
 
-1. `git clone git@github.com:LeoAJ/react-iTunes-search.git`
-2. `cd react-iTunes-search`
+1. `git clone https://github.com/ielnahz/cpreact.git`
+2. `cd cpreact`
 3. `npm install
 
 ## Dev
