@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link,hashHistory } from 'react-router';
 import '../../css/mine.css';
+import Header from '../header/Header';
 class UserCenter extends Component {
     constructor(props){
         super(props);
@@ -16,6 +17,7 @@ class UserCenter extends Component {
     render() {
         return (
             <div>
+                <Header numTab='3'></Header>
                 <div className="mine-content">
                     <div className="mine-title">
                         <div className="mine-title-name">haha520</div>

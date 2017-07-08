@@ -1,0 +1,89 @@
+.logo-content {
+    background: #f7f7f7;
+}
+.logo {
+    width: 100%;
+        padding: 3rem 0 1.1rem 0;
+    /*height: 5rem;*/
+}
+.logo .logo-img {
+    height: 0.9rem;
+    width: 0.8rem;
+    display: block;
+    margin: 0 auto;
+}
+.loginPage {
+    width: 100%;
+    height: 3.12rem;
+}
+.password {
+    width: 100%;
+    height: 2rem;
+}
+.loginPage .username, .loginPage .password {
+    position: relative;
+    width: 100%;
+    height: 1rem;
+}
+.loginPage .username .username-icon, .loginPage .password .password-icon{
+    position: absolute;
+    height: .4rem;
+    width: .4rem;
+    left: 1.08rem;
+    top: .3rem;
+    padding: .1rem;
+    background: #fccf40;
+    border-radius: 50%;
+}
+.loginPage .username .username-input , .loginPage .password .password-input {
+    position: absolute;
+    left: 1.86rem;
+    top: .3rem;
+    width: 3.88rem;
+    height: .3rem;
+    border: 2px solid #f0f0f0;
+    border-radius: 3px;
+    background: #fff;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 0.15rem 0.2rem;
+    font-size: 0.23rem;
+    color: #a8a8a8;
+}
+.loginPage .route {
+    height: .72rem;
+    width: 100%;
+    margin-top: 0.4rem;
+}
+.loginPage .route .route-input {
+    width: 4.88rem;
+    height: .32rem;
+    border-radius: 3px;
+    background: #fff;
+    padding: .2rem;
+    border: 0;
+    display: block;
+    margin: 0 auto;
+    font-size: 0.23rem;
+    color: #000;
+}
+.logo-content .login-Submit-button {
+    width: 5.28rem;
+    height: .8rem;
+    border-radius: 8px;
+    background: #f2d23f;
+    margin: 0 auto;
+    margin-top: 0.26rem;
+    text-align: center;
+    line-height: 0.8rem;
+    font-size: 0.26rem;
+    color: #5c5b59;
+}
+.logo-content .forgetpwd{
+         width: 5.28rem;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 0.2rem;
+    line-height: 0.6rem;
+ }

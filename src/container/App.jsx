@@ -43,7 +43,7 @@ class App extends Component{
         const {numTab} = this.state;
         return(
             <div ref={node=>this.node=node}>
-                <Header numTab={numTab}></Header>  
+                {/*<Header numTab={numTab}></Header>  */}
                 {children}
                 <Footer changeTab={(num) => {this.changeTab(num)}} numTab={numTab}></Footer>
                 

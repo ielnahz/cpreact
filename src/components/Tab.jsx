@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../css/public.css';
+
 class Tab extends Component {
     constructor(props) {
         super(props);
