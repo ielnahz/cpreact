@@ -1,0 +1,55 @@
+.record {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #f0eff5;
+    position: relative;
+}
+.record .recordtype {
+    height: 0.75rem;
+    line-height: 0.75rem;
+    width: 100%;
+    background: #f7f7f7;
+    color: #000000;
+    text-align: center;
+    font-size: 0.24rem;
+}
+.record .recordtype li {
+    float: left;
+    width: 25%;
+    height: 0.75rem;
+}
+.record .recordtype .nowclick {
+    border-bottom: 1rem solid #fdcb34;
+}
+.record .recordtime {
+    height: 0.75rem;
+    line-height: 0.75rem;
+    width: 100%;
+    background: #eeeeee;
+    color: #000000;
+    text-align: center;
+    font-size: 0.24rem;
+    border-bottom: 0.01rem solid #f3f3f3;
+}
+.record .recordtime li {
+    float: left;
+    width: 33%;
+    height: 0.75rem;
+}
+.record .recordtime .nowclick {
+    background: #ffffff;
+    border-radius: 0.2rem;
+}
+.record .resultlist {
+    padding-top: 0.2rem;
+}
+.record .resultlist .recorditem {
+    margin: 0.3rem 0.2rem 0;
+    padding: 0.1rem;
+}
+.record .resultlist .recorditem .dataline {
+    line-height: 0.55rem;
+    font-size: 0.25rem;
+    color: #046dff;
+}

@@ -2,11 +2,7 @@ import React from 'react';
 import {Router, Route , hashHistory,IndexRoute,Redirect } from 'react-router';
 import App from './container/App';
 import LoginPage from './container/LoginPage';
-import HomePage from './container/HomePage';
-import HallPage from './container/HallPage';
-import NoticePage from './container/NoticePage';
-import RecordPage from './container/RecordPage';
-import AccountPage from './container/AccountPage';
+import Record from './container/Record';
 import './css/global.css';
 
 import UserCenter from './container/mine/UserCenter';
@@ -29,7 +25,7 @@ const routes = (
             <Route path="/notice" component={Notice}>
 
             </Route>
-            <Route path="/query" component={BindCard}>
+            <Route path="/query" component={Record}>
 
             </Route>
             <Route path="/mine">

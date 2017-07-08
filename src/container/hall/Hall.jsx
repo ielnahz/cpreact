@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router';
 import Lottery from '../../components/Lottery';
+import '../../css/home.css';
+
 class Hall extends Component {
     constructor(props){
         super(props);
