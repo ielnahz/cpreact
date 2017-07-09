@@ -18,6 +18,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin('main.css'),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false
@@ -38,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: 'style!css',
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
         exclude: /node_modules/
       },
       {
