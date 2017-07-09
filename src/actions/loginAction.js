@@ -8,8 +8,12 @@ export function fetchLoginData(username, pwd){
         dispatch({type:'loginstart'});
         let url = utildata.baseUrl + 'mobile/login';
         console.log(url);
+        try{
             const json = (await axios.post(url, qs.stringify({username: username, password: pwd}))).data;
             console.log(json);
             dispatch({type:'loginsuccess',data:json});
+        }catch(e){
+            dispatch({type: 'loginerror'});
+        }
     }
 }

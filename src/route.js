@@ -19,6 +19,7 @@ import HallAdd from './container/hall/HallAdd';
 const routes = (
     <Route history={hashHistory}>
         <Route path="/" component={App}>
+            <IndexRoute  component={LoginPage} />
             <Route path="/login"  component={LoginPage} />
             <Route path="/home">
                 <IndexRoute component={Hall}></IndexRoute>

@@ -18,9 +18,9 @@ class Footer extends Component {
         this.props.changeTab(n);
     }
     render() {
-        const {numTab} = this.props;
+        const {numTab, tabbarHide} = this.props;
         return (
-            <div>
+            <div style={{display: tabbarHide ? 'none' : 'block'}}>
                 <div className="lottery-footer">
                     <ul className="lottery-footer-ul">
                         <Link to="/home">

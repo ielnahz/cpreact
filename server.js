@@ -13,9 +13,9 @@ new WebpackDevServer(webpack(config), {
   },
   historyApiFallback: true
 }).listen(port, host, function (err, result) {
+  console.log(result);
   if (err) {
     console.log(err);
   }
-
   console.log(`Listening at ${host}:${port}`);
 });
