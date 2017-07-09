@@ -18,6 +18,7 @@ class LoginPage extends Component {
     }
     componentDidUpdate() {
         const { userinfo } = this.props;
+        console.log(userinfo);
     }
     componentWillUnmount(){
     }
@@ -31,8 +32,6 @@ class LoginPage extends Component {
 
     setUserName(e){
         let userName = e.target.value;
-        console.log(e);
-        console.log(userName);
         this.setState({
             userName: userName
         })

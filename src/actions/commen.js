@@ -1,4 +1,4 @@
 let utildata = {
-    baseUrl: 'http://67.198.130.195/'
+    baseUrl: 'http://127.0.0.1:8000/'
 };
 export default utildata;

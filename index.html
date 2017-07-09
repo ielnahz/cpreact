@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
   <title>彩票系统</title>
+  <link rel="stylesheet" type="text/css" href="./dist/main.css" />
   <script type="text/javascript">
         (function(doc, win) {
             var docEl = doc.documentElement,
                 resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
             var recalc = function() {
                 var width = docEl.clientWidth;
-                if (width < 600) {
-                    width = 600;
+                if (width < 300) {
+                    width = 300;
                 }
                 if(width>414){
                   width=414;

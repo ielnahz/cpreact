@@ -13,17 +13,28 @@ class App extends Component{
         };
     }
     componentDidMount(){
+        
         let num = 0;
+        let tabbarHide = false;
         let pathname = this.props.location.pathname;
-        if(pathname === '/notice') {
+        if(pathname === '/home') {
+            num = 0;
+            tabbarHide = false;
+        } else if(pathname === '/notice') {
             num = 1;
-        } else if(pathname === '/record') {
+            tabbarHide = false;
+        } else if(pathname === '/query') {
             num = 2;
+            tabbarHide = false;
         } else if(pathname === '/mine') {
             num = 3;
+            tabbarHide = false;
+        } else {
+            tabbarHide = true;
         }
         this.setState({
-            numTab: num
+            numTab: num,
+            tabbarHide : true
         });
         this.node.scrollIntoView();
     }
@@ -40,12 +51,12 @@ class App extends Component{
     }
     render(){
         const {children} = this.props;
-        const {numTab} = this.state;
+        const {numTab, tabbarHide} = this.state;
         return(
             <div ref={node=>this.node=node}>
                 {/*<Header numTab={numTab}></Header>  */}
                 {children}
-                <Footer changeTab={(num) => {this.changeTab(num)}} numTab={numTab}></Footer>
+                <Footer tabbarHide={tabbarHide} changeTab={(num) => {this.changeTab(num)}} numTab={numTab}></Footer>
                 
             </div>
         )

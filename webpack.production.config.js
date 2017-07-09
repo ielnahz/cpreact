@@ -1,6 +1,8 @@
 /* globals module require __dirname */
 
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -18,6 +20,11 @@ module.exports = {
       compress: {
         warnings: false
       }
+    }),
+    new ExtractTextPlugin('main.css'),
+    new HTMLWebpackPlugin({
+      title: '彩票系统',
+      template: './index.html'
     })
   ],
   module: {
@@ -30,7 +37,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: 'style!css',
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
         exclude: /node_modules/
       },
       {
@@ -38,6 +45,9 @@ module.exports = {
         loader: 'url-loader?limit=100000',
         exclude: /node_modules/
       }
+    ],
+    rules: [
+      { test: /\.css$/, use: ExtractTextPlugin.extract({ loader: 'css-loader' }) }
     ]
   },
   resolve: {
