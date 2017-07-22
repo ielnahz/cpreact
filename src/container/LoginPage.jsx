@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import { fetchLoginData } from '../actions/loginAction';
 import "../css/login.css";
 class LoginPage extends Component {
@@ -9,16 +9,23 @@ class LoginPage extends Component {
         super(props);
         this.state = {
             userName: '',
-            pwd: ''
+            pwd: '',
+            showToast: false,
+            text: ''
         };
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.loginstate) {
+            hashHistory.push('/home');
+        } else if(nextProps.errormsg) {
+            this.showToast(nextProps.errormsg);
+        }
     }
     componentWillMount() {
     }
     componentDidMount(){
     }
     componentDidUpdate() {
-        const { userinfo } = this.props;
-        console.log(userinfo);
     }
     componentWillUnmount(){
     }
@@ -26,8 +33,24 @@ class LoginPage extends Component {
     loginHandle(){
         const { store } = this.context;
         const { userName, pwd } = this.state;
-        console.log(store);
+        if(!userName || !pwd){
+            this.showToast('用户名和密码不能为空');
+            return;
+        }
         store.dispatch(fetchLoginData(userName, pwd));
+    }
+
+    showToast(text){
+        this.setState({
+            showToast: true,
+            text : text
+        });
+        setTimeout(()=>{
+            this.setState({
+                showToast: false,
+                text: ''
+            });
+        }, 2000);
     }
 
     setUserName(e){
@@ -45,7 +68,7 @@ class LoginPage extends Component {
     }
 
     render() {
-        const { userName, pwd } = this.state;
+        const { userName, pwd, text, showToast } = this.state;
         return(<div className="logo-content">
             <div className="logo">
                 <img src={require('../img/login.png')} className="logo-img"/>
@@ -68,13 +91,16 @@ class LoginPage extends Component {
             <div onClick={()=>{this.loginHandle()}} className="login-Submit-button">登录</div>
 
             <div className="forgetpwd">忘记密码？</div>
+            <div className="toast" style={{display: showToast? 'block' : 'none'}}>{text}</div>
         </div>)
     }
 }
 function mapStateToProps(state) {
     const {loginReducer} = state;
     return {
-        userinfo: loginReducer.userinfo
+        userinfo: loginReducer.userinfo,
+        errormsg: loginReducer.errormsg,
+        loginstate: loginReducer.loginstate
     };
 }
 LoginPage.contextTypes = {

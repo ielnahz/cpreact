@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
 import { Link, hashHistory } from 'react-router';
+import { fetchHomeData } from '../../actions/homeAction';
 import Lottery from '../../components/Lottery';
 import Header from '../header/Header';
 import '../../css/home.css';
@@ -21,8 +23,14 @@ class Hall extends Component {
             active: activeNew
         });
     }
-    componentDidMount() {}
-    componentDidUpdate() {}
+    componentDidMount() {
+        const { store } = this.context;
+        store.dispatch(fetchHomeData());
+    }
+    componentDidUpdate() {
+        const { homeinfo } = this.props;
+        console.log(homeinfo);
+    }
     componentWillUnmount() {
     }
     changeTab(n){
@@ -41,7 +49,7 @@ class Hall extends Component {
         const {active} = this.state;
         const numM = [9,7,7,6,1];
         return (
-            <div>
+            <div className="hall">
                 <Header numTab='0'></Header>
                 <div className="hall-content">
                     <span className="home-hall-bg" ></span>
@@ -97,4 +105,23 @@ class Hall extends Component {
         );
     }
 }
-export default connect()(Hall);
+
+function mapStateToProps(state) {
+    const {loginReducer, homeReducer} = state;
+    return {
+        userinfo: loginReducer.userinfo,
+        homeinfo: homeReducer.homeinfo
+    };
+}
+Hall.contextTypes = {
+    store: React.PropTypes.object
+};
+function mapDispatchToProps(dispatch) {
+    return {
+        getHomeData: bindActionCreators(fetchHomeData, dispatch)
+    }
+}
+function mergeProps(stateProps, dispatchProps, ownProps) {
+    return Object.assign({}, ownProps, stateProps, dispatchProps);
+}
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Hall);

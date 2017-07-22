@@ -6,8 +6,8 @@
     bottom: 0;
     background: #404040;
 }
-.lottery-footer-div {
-    height: 0.87rem;
+.lottery-footer div {
+    height: auto;
 }
 .lottery-footer-ul {
     width: 100%;

@@ -1,3 +1,6 @@
+.hall div {
+    height: auto;
+}
 .hall-content {
     position: relative;
     font-size:0;

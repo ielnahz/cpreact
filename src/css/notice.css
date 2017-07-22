@@ -1,5 +1,17 @@
+.notice {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling : touch;
+}
+.notice div {
+    height: auto;
+}
 .notice-content {
     width: 100%;
+    padding-bottom: 0.87rem;
+}
+.notice-content div {
+    height: auto;
 }
 .notice-content .notice-content-ul {
     width: calc( 100% - 0.38rem );

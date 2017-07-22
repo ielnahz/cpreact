@@ -16,7 +16,7 @@ class UserCenter extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="mine">
                 <Header numTab='3'></Header>
                 <div className="mine-content">
                     <div className="mine-title">

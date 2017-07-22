@@ -1,6 +1,9 @@
 .logo-content {
     background: #f7f7f7;
 }
+.logo-content div {
+    height: auto;
+}
 .logo {
     width: 100%;
         padding: 3rem 0 1.1rem 0;
@@ -81,9 +84,22 @@
     color: #5c5b59;
 }
 .logo-content .forgetpwd{
-         width: 5.28rem;
+    width: 5.28rem;
     margin: 0 auto;
     text-align: right;
     font-size: 0.2rem;
     line-height: 0.6rem;
+ }
+ .logo-content .toast {
+    width: 4rem;
+    line-height: 0.8rem;
+    font-size: 0.26rem;
+    position: fixed;
+    left: 50%;
+    top: 6rem;
+    margin-left: -2rem;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 0.4rem;
+    text-align: center;
  }

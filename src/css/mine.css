@@ -1,3 +1,6 @@
+.mine div {
+    height: auto;
+}
 .mine-header {
     font-size: .375rem;
     font-weight: 500;

@@ -5,6 +5,9 @@
     background: #f0eff5;
     position: relative;
 }
+.record div {
+    height: auto;
+}
 .record .recordtype {
     height: 0.75rem;
     line-height: 0.75rem;

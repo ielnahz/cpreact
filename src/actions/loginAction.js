@@ -4,14 +4,16 @@ import utildata from './commen';
 
 export function fetchLoginData(username, pwd){
     return async (dispatch)=>{
-        console.log('in async dispatch');
         dispatch({type:'loginstart'});
         let url = utildata.baseUrl + 'mobile/login';
         console.log(url);
         try{
             const json = (await axios.post(url, qs.stringify({username: username, password: pwd}))).data;
-            console.log(json);
-            dispatch({type:'loginsuccess',data:json});
+            if(json.success) {
+                dispatch({type:'loginsuccess',data:json.user});
+            } else {
+                dispatch({type:'loginfail',data:json.msg});
+            }
         }catch(e){
             dispatch({type: 'loginerror'});
         }

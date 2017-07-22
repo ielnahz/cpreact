@@ -18,7 +18,7 @@ class Notice extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="notice">
                 <Header numTab='1'></Header>
                 <div className="notice-content">
                     <ul className="notice-content-ul">
@@ -123,7 +123,7 @@ class Notice extends Component {
                             </li>
                         </Link>
                         <Link>
-                            <li className="li-bottom">
+                            <li>
                                 <div className="message">
                                     <span className="message-name">重庆时时彩</span>
                                     <span className="message-num">第20170617056</span>
