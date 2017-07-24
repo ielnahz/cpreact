@@ -1,6 +1,8 @@
-
 var def = {
-    homeinfo: {}
+    lottery: [],
+    lotteryJson: {},
+    homeinfo: {},
+    userinfo: {}
 };
 
 function homeReducer(state=def,action){
@@ -8,7 +10,7 @@ function homeReducer(state=def,action){
         case 'homestart':
             return {...state};
         case 'homesuccess':
-            return {...state, homeinfo: action.data};
+            return {...state, homeinfo: action.data, lottery: action.lottery, lotteryJson: action.lotteryJson, userinfo:action.userinfo};
         case 'homeerror':
             return {...state};
     }

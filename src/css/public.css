@@ -4,14 +4,14 @@
     clear: both;
 }
 .msg .numitem {
-    width: 0.44rem;
-    height: 0.44rem;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
-    margin-right: 0.03rem;
-    
-    font-size: 0.2rem;
-    line-height: 0.44rem;
+    margin-right: 0.02rem;
+    font-size: 0.32rem;
+    line-height: 0.5rem;
     text-align: center;
+    font-style: normal;
 }
 .msg .bgRed {
     background: #f11e24;
@@ -19,7 +19,7 @@
 }
 .msg .bgYellow {
     background: #fbce3f;
-    color: #421f0b;
+    color: #333;
 }
 .msg .fl {
     float: left;

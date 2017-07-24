@@ -9,9 +9,13 @@ export function fetchHomeData(){
         console.log(url);
         try{
             const json = (await axios.post(url, qs.stringify({}))).data;
-            console.log(json);
+            let topLottery, lottery = [];
+            for(let key in json.game.lottery) {
+                lottery.push(json.game.lottery[key]);
+            }
+            topLottery = lottery[0];
             if(json.success) {
-                dispatch({type:'homesuccess',data:json.user});
+                dispatch({type:'homesuccess', data: json, lottery:lottery, lotteryJson:json.game.lottery, userinfo: json.user});
             }
         }catch(e){
             dispatch({type: 'homeerror'});

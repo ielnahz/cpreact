@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+import { fetchRecordData } from '../actions/recordAction';
 import RecordItem from '../components/RecordItem'
 import '../css/record.css';
 
@@ -13,6 +14,8 @@ class Record extends Component {
     componentWillMount() {
     }
     componentDidMount(){
+        const { store } = this.context;
+        store.dispatch(fetchRecordData());
     }
     componentDidUpdate() {
     }
@@ -50,4 +53,23 @@ class Record extends Component {
         </div>)
     }
 }
-export default connect()(Record);
+
+function mapStateToProps(state) {
+    const {loginReducer, recordReducer} = state;
+    return {
+        userinfo: loginReducer.userinfo,
+        recordList: recordReducer.recordList
+    };
+}
+Record.contextTypes = {
+    store: React.PropTypes.object
+};
+function mapDispatchToProps(dispatch) {
+    return {
+        getRecordData: bindActionCreators(fetchRecordData, dispatch)
+    }
+}
+function mergeProps(stateProps, dispatchProps, ownProps) {
+    return Object.assign({}, ownProps, stateProps, dispatchProps);
+}
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Record);

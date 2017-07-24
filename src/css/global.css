@@ -32,14 +32,20 @@ form {
     color: #404040;
 }
 html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+body, html {
     height: 100%;
+    font-family: "微软雅黑"; 
+    background: #f7f7f7;
 }
 body {
     background-color: #fff;
     -webkit-text-size-adjust: 100%;
     min-width: 320px;
-    font: 0.13rem/2em sans-serif;
     height: 100%;
+    font-family: 'Helvetica Neue',Helvetica,sans-serif;
 }
 em,
 i {

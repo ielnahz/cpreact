@@ -3,14 +3,17 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import { Link, hashHistory } from 'react-router';
 import { fetchHomeData } from '../../actions/homeAction';
+import { fetchNoticeData } from '../../actions/noticeAction';
 import Lottery from '../../components/Lottery';
 import Header from '../header/Header';
+import imglist from '../../util/lotteryImg';
 import '../../css/home.css';
 class Hall extends Component {
     constructor(props){
         super(props);
         this.state = {
-            active: [true, false, false, false]
+            active: [true, false, false, false],
+            myLottery: []
         };
     }
         
@@ -26,10 +29,31 @@ class Hall extends Component {
     componentDidMount() {
         const { store } = this.context;
         store.dispatch(fetchHomeData());
+        store.dispatch(fetchNoticeData());
     }
     componentDidUpdate() {
-        const { homeinfo } = this.props;
-        console.log(homeinfo);
+        const { lottery, lotteryJson } = this.props;
+        const { myLottery } = this.state;
+        if(lottery.length > 0 && myLottery.length === 0) {
+            let myLotterylist = [],
+                storage = window.localStorage;
+            console.log(storage.myLottery);
+            if(storage.myLottery) {
+                let storageLottery = storage.myLottery.split(',');
+                for(let i=0; i<storageLottery.length; i++) {
+                    myLotterylist.push(lotteryJson[storageLottery[i]]);
+                }
+                this.setState({
+                    myLottery: myLotterylist
+                })
+            } else {
+                myLotterylist.push(lottery[0]);
+                storage['myLottery'] = lottery[0].l_id
+                this.setState({
+                    myLottery: myLotterylist
+                })
+            }
+        }
     }
     componentWillUnmount() {
     }
@@ -43,11 +67,12 @@ class Hall extends Component {
         this.props.changeTab(n);
     }
     addTickect() {
-        hashHistory.pushState(null, '/home/add');
+        hashHistory.push('/home/add');
     }
     render() {
-        const {active} = this.state;
-        const numM = [9,7,7,6,1];
+        const {active, myLottery} = this.state;
+        const { homeinfo, userinfo, noticeList, lottery } = this.props;
+        let numM = noticeList[0] ? noticeList[0].result.split(',') : [];
         return (
             <div className="hall">
                 <Header numTab='0'></Header>
@@ -56,42 +81,27 @@ class Hall extends Component {
                     <div className="home-hall-now">
                         <div className="left">
                             <div className="hall-name-title">
-                                <span className="hall-name">重庆时时彩</span>
-                                <span className="hall-num">第20170617117期</span>
+                                <span className="hall-name">{noticeList[0]?noticeList[0].name : ''}</span>
+                                <span className="hall-num">{noticeList[0]?'第'+noticeList[0].expect+'期': ''}</span>
                             </div>
                             <Lottery num={numM} bg={true}></Lottery>
                         </div>
                         <div className="right">
-                            <div className="hall-user">haha520</div>
-                            <div className="hall-money">0.000</div>
+                            <div className="hall-user">{userinfo.username}</div>
+                            <div className="hall-money">{userinfo.use_money ? parseInt(userinfo.use_money).toFixed(3): ''}</div>
                         </div>
                     </div>
                     <div className="hall-mine-ticket">我的彩票</div>
                     <ul className="hall-mine-ticket-img clear">
-                        <li>
-                            <img src={require('../../img/tickect-fuCai.png')} />
-                            <span className="tickect-name">重庆时时彩</span>
-                        </li>
-                        <li>
-                            <img src={require('../../img/tickect-fuCai.png')} />
-                            <span className="tickect-name">重庆时时彩</span>
-                        </li>
-                        <li>
-                            <img src={require('../../img/tickect-fuCai.png')} />
-                            <span className="tickect-name">重庆时时彩</span>
-                        </li>
-                        <li>
-                            <img src={require('../../img/tickect-fuCai.png')} />
-                            <span className="tickect-name">重庆时时彩</span>
-                        </li>
-                        <li>
-                            <img src={require('../../img/tickect-fuCai.png')} />
-                            <span className="tickect-name">重庆时时彩</span>
-                        </li>
-                        <li>
-                            <img src={require('../../img/tickect-fuCai.png')} />
-                            <span className="tickect-name">重庆时时彩</span>
-                        </li>
+                        {
+                            myLottery.map((item, index) => {
+                                let itemImg = imglist[item.name] ? require('../../img/' + imglist[item.name]) : '';
+                                return <li key={index}>
+                                    <img src={itemImg} />
+                                    <span className="tickect-name">{item.name}</span>
+                                </li>
+                            })
+                        }
                     </ul>
                     <div className="tickect-add">
                         <div className="tickect-add-button" onClick={() => this.addTickect()}>
@@ -107,10 +117,13 @@ class Hall extends Component {
 }
 
 function mapStateToProps(state) {
-    const {loginReducer, homeReducer} = state;
+    const { homeReducer, noticeReducer } = state;
     return {
-        userinfo: loginReducer.userinfo,
-        homeinfo: homeReducer.homeinfo
+        userinfo: homeReducer.userinfo,
+        homeinfo: homeReducer.homeinfo,
+        lottery: homeReducer.lottery,
+        lotteryJson: homeReducer.lotteryJson,
+        noticeList: noticeReducer.noticeList
     };
 }
 Hall.contextTypes = {
