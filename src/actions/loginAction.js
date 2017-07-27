@@ -11,6 +11,7 @@ export function fetchLoginData(username, pwd){
             const json = (await axios.post(url, qs.stringify({username: username, password: pwd}))).data;
             if(json.success) {
                 dispatch({type:'loginsuccess',data:json.user});
+                dispatch({type:'nologin',data:true});
             } else {
                 dispatch({type:'loginfail',data:json.msg});
             }

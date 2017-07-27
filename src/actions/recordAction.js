@@ -15,6 +15,7 @@ export function fetchRecordData(){
             }
         }catch(e){
             dispatch({type: 'recorderror'});
+            dispatch({type: 'nologin'});
         }
     }
 }

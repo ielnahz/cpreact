@@ -69,6 +69,9 @@ class Hall extends Component {
     addTickect() {
         hashHistory.push('/home/add');
     }
+    toBet(id) {
+        hashHistory.push(`/home/bet/?id=${id}`);
+    }
     render() {
         const {active, myLottery} = this.state;
         const { homeinfo, userinfo, noticeList, lottery } = this.props;
@@ -96,7 +99,7 @@ class Hall extends Component {
                         {
                             myLottery.map((item, index) => {
                                 let itemImg = imglist[item.name] ? require('../../img/' + imglist[item.name]) : '';
-                                return <li key={index}>
+                                return <li key={index} onClick={()=>this.toBet(item.l_id)}>
                                     <img src={itemImg} />
                                     <span className="tickect-name">{item.name}</span>
                                 </li>

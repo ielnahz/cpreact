@@ -1,18 +1,19 @@
 .lottery-header,.lottery-header-back  {
-    height: 0.8rem;
+    height: 0.88rem;
     position: relative;
     border-bottom: 1px solid #dcdcdc;
+    background: #ffffff;
 }
 .lottery-header div,.lottery-header-back div {
     height: 100%;
-    font-size: 0.3rem;
-    line-height: 0.8rem;
+    font-size: 0.34rem;
+    line-height: 0.88rem;
     text-align: center;
 }
 .lottery-header img {
     position: absolute;
     right: 0.34rem;
-    top: 0.18rem;
+    top: 0.22rem;
     width: 0.4rem;
     height: 0.4rem;
 }

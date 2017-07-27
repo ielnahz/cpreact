@@ -19,6 +19,7 @@ export function fetchHomeData(){
             }
         }catch(e){
             dispatch({type: 'homeerror'});
+            dispatch({type: 'nologin'});
         }
     }
 }

@@ -78,7 +78,7 @@ class HallAdd extends Component {
         this.props.changeTab(n);
     }
     changeBack() {
-        hashHistory.pushState(null, '/home');
+        history.back();
     }
     removeLottery(item){
         const { myLottery, lastLottery } = this.state;

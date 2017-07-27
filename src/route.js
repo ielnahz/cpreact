@@ -3,7 +3,7 @@ import {Router, Route , hashHistory,IndexRoute,Redirect } from 'react-router';
 import App from './container/App';
 import LoginPage from './container/LoginPage';
 import Record from './container/Record';
-import './css/global.css';
+import Notice from './container/notice/Notice';
 
 import UserCenter from './container/mine/UserCenter';
 import ModifyCapitalPwd from './container/mine/ModifyCapitalPwd';
@@ -13,9 +13,13 @@ import AccountWithCash from './container/mine/AccountWithCash';
 import AccountRecharge from './container/mine/AccountRecharge';
 import BindCard from './container/mine/BindCard';
 import AgentManage from './container/mine/AgentManage';
+
 import Hall from './container/hall/Hall';
-import Notice from './container/notice/Notice';
 import HallAdd from './container/hall/HallAdd';
+import BetPage from './container/hall/BetPage';
+
+import './css/global.css';
+
 const routes = (
     <Route history={hashHistory}>
         <Route path="/" component={App}>
@@ -24,6 +28,7 @@ const routes = (
             <Route path="/home">
                 <IndexRoute component={Hall}></IndexRoute>
                 <Route path="add" component={HallAdd}></Route>
+                <Route path="bet" component={BetPage}></Route>
             </Route>
             <Route path="/notice" component={Notice}>
 

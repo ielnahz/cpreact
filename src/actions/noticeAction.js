@@ -15,6 +15,7 @@ export function fetchNoticeData(){
             }
         }catch(e){
             dispatch({type: 'noticeerror'});
+            dispatch({type: 'nologin'});
         }
     }
 }

@@ -20,7 +20,7 @@
     background: #ffffff;
 }
 .hall-content .home-hall-now .left {
-    width: calc( 75% - 0.54rem );
+    width: calc( 80% - 0.54rem );
     border-right: 1px solid #efefef;
     height: 0.92rem;
     padding: 0.26rem;
@@ -42,7 +42,7 @@
     margin-left: 0.2rem;
 }
 .hall-content .home-hall-now .right {
-    width: calc( 25% - 0.52rem );
+    width: calc( 20% - 0.52rem );
     height: 0.92rem;
     padding: 0.26rem;
     float: left;
