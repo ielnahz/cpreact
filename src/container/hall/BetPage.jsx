@@ -5,7 +5,9 @@ import { Link, hashHistory } from 'react-router';
 import { fetchBetData } from '../../actions/betAction';
 import Lottery from '../../components/Lottery';
 import HeaderBack from '../header/HeaderBack';
+import BetDetail from './BetDetail';
 import imglist from '../../util/lotteryImg';
+import {cut} from '../../util/global';
 import '../../css/bet.css';
 class BetPage extends Component {
     constructor(props){
@@ -17,7 +19,9 @@ class BetPage extends Component {
             nowBKind : '',
             nowSKind : {},
             play_kind : {},
-            nowPlayKind : []
+            nowPlayKind : [],
+            tpl:'',
+            data: {}
         };
     }
 
@@ -31,12 +35,13 @@ class BetPage extends Component {
 
             console.log(playKind);
             console.log(playKind.kind[playKind.type[0]]);
+            this.chooseSKind(playKind.kind[playKind.type[0]][0]);
+            console.log('------------');
             this.setState({
                 kinds : playKind.type,
                 nowBKind : playKind.type[0],
                 play_kind : playKind.kind,
-                nowPlayKind : playKind.kind[playKind.type[0]],
-                nowSKind : playKind.kind[playKind.type[0]][0]
+                nowPlayKind : playKind.kind[playKind.type[0]]
             }); 
         }
     }
@@ -82,30 +87,43 @@ class BetPage extends Component {
     }
     chooseKind(kind) {
         const { play_kind } = this.state;
+        this.chooseSKind(play_kind[kind][0]);
+        this.refs.scrollkind.scrollLeft = 0;
         this.setState({
             nowBKind : kind,
             nowPlayKind : play_kind[kind],
-            nowSKind : play_kind[kind][0],
             kindSelectPage : false
         });
     }
+    chooseSKind(item) {
+        console.log(item);
+        let obj = cut(item.id);
+
+        this.setState({
+            nowSKind: item,
+            tpl: obj.tpl,
+            data: obj.data
+        });
+    }
     render() {
-        const {kinds, nowBKind, nowSKind, play_kind, nowPlayKind, kindSelectPage} = this.state;
+        const {kinds, nowBKind, nowSKind, play_kind, nowPlayKind, kindSelectPage, tpl, data} = this.state;
         const {lottery} = this.props;
         console.log(nowPlayKind);
+        console.log('------------');
         return (
-            <div className="bet-content">
+            <div className="betMain">
                 <HeaderBack text={lottery.name} onClick={() => {this.changeBack()}}></HeaderBack>
                 <div className="bet-menu">
                     <span className="bet-play" onClick={()=>this.showSelectPage()}>{nowBKind}</span>
-                    <div className="scroll-skind">
+                    <div ref="scrollkind" className="scroll-skind">
                         {
                             nowPlayKind.map((item, index)=>{
-                                return <a key={index} className={'mui-control-item ' + (item.id === nowSKind.id ? 'mui-active' : '')}>{item.name}</a>
+                                return <a key={index} data-id={item.id} className={'mui-control-item ' + (item.id === nowSKind.id ? 'mui-active' : '')} onClick={()=>this.chooseSKind(item)}>{item.name}</a>
                             })
                         }
                     </div>
                 </div>
+                <BetDetail tpl={tpl} data={data}></BetDetail>
 
                 <div className="kindSelect" style={{display: kindSelectPage ? 'block' : 'none'}}>
                     <div className="lottery-header-back kindSelectTitle">

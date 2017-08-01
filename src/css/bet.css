@@ -1,13 +1,13 @@
-.bet-content {
+.betMain {
     height: 100%;
     background: #f7f7f7;
     overflow: auto;
     -webkit-overflow-scrolling : touch;
 }
-.bet div {
+.betMain div {
     height: auto;
 }
-.bet-content .bet-menu {
+.betMain .bet-menu {
     height: 40px;
     width: 100%;
     position: relative;
@@ -15,7 +15,7 @@
     margin-top: 10px;
     z-index: 3;
 }
-.bet-content .bet-menu span {
+.betMain .bet-menu span {
     width: 1.8rem;
     height: 0.8rem;
     line-height: 0.8rem;
@@ -26,7 +26,7 @@
     z-index: 5;
     float: left;
 }
-.bet-content .bet-menu .scroll-skind {
+.betMain .bet-menu .scroll-skind {
     margin-left: 1.8rem;
     height: 0.8rem;
     border: 0;
@@ -39,7 +39,7 @@
     overflow: auto;
     box-sizing: border-box;
 }
-.bet-content .bet-menu .mui-control-item {
+.betMain .bet-menu .mui-control-item {
     font-size: 0.26rem;
     padding: 0.25rem 10px;
     height: 0.8rem;
@@ -48,14 +48,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.bet-content .bet-menu .mui-control-item.mui-active {
+.betMain .bet-menu .mui-control-item.mui-active {
     background: #FACE3D;
     color: #000;
     border-bottom: #FACE3D;
 }
 
 
-.bet-content .kindSelect {
+.betMain .kindSelect {
     height: 100%;
     width: 100%;
     background: #f7f7f7;
@@ -65,25 +65,25 @@
     left: 0;
     z-index: 10;
 }
-.bet-content .kindSelect .kindSelectTitle {
+.betMain .kindSelect .kindSelectTitle {
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
-.bet-content .kindSelect .play_label {
+.betMain .kindSelect .play_label {
     padding-top: 1rem;
     font-size: 0;
     text-align: left;
 }
-.bet-content .kindSelect .play_label li {
+.betMain .kindSelect .play_label li {
     width: 33.333%;
     display: inline-block;
     padding: 0 10px;
     margin-bottom: 15px;
     box-sizing: border-box;
 }
-.bet-content .kindSelect .play_label li span {
+.betMain .kindSelect .play_label li span {
     font-size: 0.26rem;
     border: 1px solid #cfcfcf;
     background: #fff;
@@ -92,5 +92,117 @@
     padding: 8px 15px;
     display: block;
     text-align: center;
+    box-sizing: border-box;
+}
+
+.betbar {
+    padding: 10px;
+    text-align: center;
+}
+.betMain .betbar .balls {
+    position: relative;
+    padding-top: 40px;
+    margin-bottom: 10px;
+}
+.betMain .betbar .balls span {
+    width: 70px;
+    height: 40px;
+    background: #eee;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    color: #323232;
+}
+.betMain .betbar .balls-bar {
+    background: #f7f7f7;
+    border: 1px solid #eee;
+}
+.betMain .betbar .balls-bar ul {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0;
+    padding: 5px;
+    text-align: center;
+}
+.betMain .betbar .balls-bar ul li {
+    display: inline-block;
+    text-align: center;
+}
+.betMain .betbar .balls-bar .balls-l {
+    text-align: left;
+    margin-bottom: 0;
+}
+.betMain .betbar .balls-bar .balls-l li {
+    width: 16.6666667%;
+    height: 45px;
+    padding-bottom: 5px;
+}
+.betMain .betbar .balls-bar .balls-l li span {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #FACE3D;
+    background: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    position: initial;
+    color: #404040;
+}
+.betMain .betbar .balls-bar .balls-l li span.active {
+    background: #FACE3D;
+    color: #333;
+}
+.betMain .betbar .balls-bar .balls-r {
+    background: #eee;
+    margin-bottom: 0;
+    padding: 5px;
+}
+.betMain .betbar .balls-bar .balls-r li {
+    width: 16.6666667%;
+    margin-bottom: 0;
+}
+.betMain .betbar .balls-bar .balls-r li span {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 10px;
+    border: 1px solid #ACACB4;
+    position: initial;
+    display: inline-block;
+    background: #fff;
+    font-size: 13px;
+    color: #333;
+}
+.textarea {
+    line-height: 21px;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 3px;
+    outline: 0;
+    background-color: #fff;
+    -webkit-appearance: none;
+    padding: 5px;
+    font-size: 13px;
+    height: 120px;
+    resize: none;
+    box-sizing: border-box;
+}
+#single-btn {
+    padding: 5px 15px;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px;
+    background: #8A6DE9;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     box-sizing: border-box;
 }

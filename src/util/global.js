@@ -1,25 +1,7 @@
-/**
- * 对html页面填充菜单信息
- * @param all
- */
-var addHtmlSecMenu = function(play_kind){
-    var new_play = {};
-    for(var i in play_kind)
-    {
-        var pname = play_kind[i].pname;
-        if(new_play[pname] == undefined)
-        {
-            new_play[pname] = [];
-        }
-        new_play[pname].push(play_kind[i])
-    }
-    var menu = template('menu',{data:new_play})
-    $('#dv_play_list').html(menu)
-}
-
-
 //二级分类切换
-var cut = function(play_id,exam,explain,help){
+export function cut(play_id){
+    var obj={};
+
     var hix = function(start,end,tpl,other){
         var html_1 = ''
         var type = [
@@ -113,71 +95,65 @@ var cut = function(play_id,exam,explain,help){
                 break;
         }
         console.log(tpl)
-        //选择模板
-        var select_template = function(data){
-            var html = template(tpl, data);
-            $('#dv_pick_region_c').html(html);
-        }
-
-        select_template(data)
-
+        obj.tpl = tpl;
+        obj.data = data;
+        return obj;
     }
 
 
     //投注区域变更
-    $('#yilou').show()
     switch (parseInt(play_id,10))
     {
         case 7:
         case 23:
-            hix(0,5);
+            return hix(0,5);
             break;
         case 337:
-            hix(0,3,'betting_11x5');
+            return hix(0,3,'betting_11x5');
             break;
         case 8:
-            hix(0,4)
+            return hix(0,4)
             break;
         case 9:
-            hix(1,5)
+            return hix(1,5)
             break;
         case 10:
         case 295:
-            hix(0,3);
+            return hix(0,3);
             break;
         case 11:
         case 14:
         case 17://组三
         case 287:
-            hix(5,6)
+            return hix(5,6)
             break;
         case 12://组六
         case 15:
         case 18:
         case 288:
-            hix(6,7);
+            return hix(6,7);
             break;
         case 13:
-            hix(1,4);
+            return hix(1,4);
             break;
         case 16:
         case 285:
-            hix(2,5);
+            return hix(2,5);
             break;
         case 19:
         case 293:
-            hix(0,2);
+            return hix(0,2);
             break;
         case 20:
         case 22:
         case 294:
-            hix(7,8);
+            return hix(7,8);
             break;
         case 21:
-            hix(3,5);
+            return hix(3,5);
             break;
         case 23:
-            hix(3,5);
+            return hix(3,5);
             break;
         case 24:
         case 34:
@@ -191,38 +167,38 @@ var cut = function(play_id,exam,explain,help){
         case 374:
         case 375:
         case 376:
-            hix(8,9);
+            return hix(8,9);
             break;
         //任选
         case 25:
         case 28:
 
         case 453:
-            hix(0,5);
+            return hix(0,5);
             break;
         case 340:
         case 338:
-            hix(0,5,'betting_11x5');
+            return hix(0,5,'betting_11x5');
             break;
         case 26:
-            hix(5,6,'betting_duplex',{allow:1});
+            return hix(5,6,'betting_duplex',{allow:1});
             break;
         case 27:
-            hix(6,7,'betting_duplex',{allow:1});
+            return hix(6,7,'betting_duplex',{allow:1});
             break;
         case 420:
-            hix(6,7,1);
+            return hix(6,7,1);
             break;
         case 29:
-            hix(7,8,'betting_duplex',{allow:1});
+            return hix(7,8,'betting_duplex',{allow:1});
             break;
         case 342:
         case 343:
-            //hix(7,8,1);
-            hix(30,31,'betting_11x5',{allow:1});
+            //return hix(7,8,1);
+            return hix(30,31,'betting_11x5',{allow:1});
             break;
         case 423:
-            hix(7,8,'betting_car',{allow:1});
+            return hix(7,8,'betting_car',{allow:1});
             break;
         case 61:
         case 62:
@@ -240,247 +216,247 @@ var cut = function(play_id,exam,explain,help){
         case 426:
         case 428:
 
-            var tmp ='<div class="l-number-input" style="display: block;"><label>请在下方的输入框内输入或粘贴投注内容，每注请使用 逗号、空格或 “;” 分割开</label><textarea id="textarea-code"></textarea></div>';
-            $(config.bet).html(tmp)
-            hix(0,0,'betting_danshi')
+            // var tmp ='<div class="l-number-input" style="display: block;"><label>请在下方的输入框内输入或粘贴投注内容，每注请使用 逗号、空格或 “;” 分割开</label><textarea id="textarea-code"></textarea></div>';
+            // $(config.bet).html(tmp)
+            return hix(0,0,'betting_danshi')
             break;
         case 69:
         case 70:
         case 341:
         case 454:
-            hix(0,0,'betting_danshi',{allow:1})
+            return hix(0,0,'betting_danshi',{allow:1})
             break;
         case 339:
-            hix(0,0,'betting_danshi',{allow:1})
+            return hix(0,0,'betting_danshi',{allow:1})
             break;
         case 421:
-            hix(0,0,'betting_car_danshi',{allow:1})
+            return hix(0,0,'betting_car_danshi',{allow:1})
             break;
         case 119:
-            hix(10,15,false,1)
+            return hix(10,15,false,1)
             break;
         case 129:
-            hix(15,20,false,1)
+            return hix(15,20,false,1)
             break;
         case 283:
         case 321:
-            hix(2,5);
+            return hix(2,5);
             break;
         case 284:
-            hix(0,0,'betting_3d_danshi',{allow:1})
+            return hix(0,0,'betting_3d_danshi',{allow:1})
             break;
         case 322:
-            //hix(31,32);
-            hix(31,32,'betting_and_values',{start:0,end:27});
+            //return hix(31,32);
+            return hix(31,32,'betting_and_values',{start:0,end:27});
             break;
         //任选1
         case 323:
-            hix(20,21,'betting_11x5');
+            return hix(20,21,'betting_11x5');
             break;
         case 324:
-            hix(21,22,'betting_11x5');
+            return hix(21,22,'betting_11x5');
             break;
         case 325:
-            hix(22,23,'betting_11x5');
+            return hix(22,23,'betting_11x5');
             break;
         case 326:
-            hix(23,24,'betting_11x5');
+            return hix(23,24,'betting_11x5');
             break;
         case 327:
-            hix(24,25,'betting_11x5');
+            return hix(24,25,'betting_11x5');
             break;
         case 328:
-            hix(25,26,'betting_11x5');
+            return hix(25,26,'betting_11x5');
             break;
         case 329:
-            hix(26,27,'betting_11x5');
+            return hix(26,27,'betting_11x5');
             break;
         case 330:
-            hix(27,28,'betting_11x5');
+            return hix(27,28,'betting_11x5');
             break;
         case 344:
-            hix(32,33,'betting_11x5_center');
+            return hix(32,33,'betting_11x5_center');
             break;
         case 345:
-            hix(33,34,'betting_11x5_single_and_double');
+            return hix(33,34,'betting_11x5_single_and_double');
             break;
         case 346:
-            hix(34,35);
+            return hix(34,35);
             break;
         case 347:
         case 348:
         case 357:
         case 361:
-            hix(35,37);
+            return hix(35,37);
             break;
         case 349:
         case 359:
         case 363:
-            hix(37,39);
+            return hix(37,39);
             break;
         case 350:
-            hix(39,41);
+            return hix(39,41);
             break;
         case 351:
-            hix(41,43);
+            return hix(41,43);
             break;
         case 352:
-            hix(43,44);
+            return hix(43,44);
             break;
         case 353:
-            hix(44,45);
+            return hix(44,45);
             break;
         case 354:
-            hix(45,46);
+            return hix(45,46);
             break;
         case 355:
-            hix(46,47);
+            return hix(46,47);
             break;
         case 356:
         case 360:
-            hix(47,48);
+            return hix(47,48);
             break;
         case 358:
         case 362:
-            hix(35,36);
+            return hix(35,36);
             break;
         case 364:
-            hix(48,49,'betting_and_values',{start:0,end:27});
+            return hix(48,49,'betting_and_values',{start:0,end:27});
             break;
         case 365:
-            hix(49,50,'betting_and_values',{start:0,end:27});
+            return hix(49,50,'betting_and_values',{start:0,end:27});
             break;
         case 366:
-            hix(50,51,'betting_and_values',{start:0,end:27});
+            return hix(50,51,'betting_and_values',{start:0,end:27});
             break;
         case 367:
-            hix(51,52,'betting_and_values',{start:0,end:18});
+            return hix(51,52,'betting_and_values',{start:0,end:18});
             break;
         case 368:
-            hix(52,53,'betting_and_values',{start:0,end:18});
+            return hix(52,53,'betting_and_values',{start:0,end:18});
             break;
         case 382:
-            hix(53,54,'betting_and_values',{start:0,end:27,allow:1});
+            return hix(53,54,'betting_and_values',{start:0,end:27,allow:1});
             break;
         case 381:
-            hix(54,55,'betting_and_values',{start:0,end:18,allow:1});
+            return hix(54,55,'betting_and_values',{start:0,end:18,allow:1});
             break;
         case 377:
-            hix(0,2,'betting_single_and_double');
+            return hix(0,2,'betting_single_and_double');
             break;
         case 378:
-            hix(3,5,'betting_single_and_double');
+            return hix(3,5,'betting_single_and_double');
             break;
         case 379:
-            hix(0,3,'betting_single_and_double');
+            return hix(0,3,'betting_single_and_double');
             break;
         case 380:
-            hix(2,5,'betting_single_and_double');
+            return hix(2,5,'betting_single_and_double');
             break;
         case 383:
         case 391:
         case 397:
         case 403:
         case 406:
-            hix(55,56);
+            return hix(55,56);
             break;
         //组选和值
         case 387:
         case 393:
         case 399:
-            hix(57,58,'betting_and_values',{start:1,end:26});
+            return hix(57,58,'betting_and_values',{start:1,end:26});
             break;
         case 404:
         case 407:
-            hix(57,58,'betting_and_values',{start:1,end:17});
+            return hix(57,58,'betting_and_values',{start:1,end:17});
             break;
         case 388:
         case 394:
         case 400:
         case 405:
         case 408:
-            hix(58,59);
+            return hix(58,59);
             break;
         case 389:
         case 395:
         case 401:
-            hix(59,60);
+            return hix(59,60);
             break;
         case 390:
         case 396:
         case 402:
-            hix(60,61,'betting_special');
+            return hix(60,61,'betting_special');
             break;
     /**
      * 北京赛车
      */
         case 409:
-            hix(10,15,'betting_car');
+            return hix(10,15,'betting_car');
             break;
         case 410:
-            hix(15,20,'betting_car');
+            return hix(15,20,'betting_car');
             break;
         case 411:
-            hix(20,21,'betting_car');
+            return hix(20,21,'betting_car');
             break;
         case 412:
-            hix(21,22,'betting_car');
+            return hix(21,22,'betting_car');
             break;
         case 413:
-            hix(22,23,'betting_car');
+            return hix(22,23,'betting_car');
             break;
         case 414:
-            hix(23,24,'betting_car');
+            return hix(23,24,'betting_car');
             break;
         case 415:
-            hix(24,25,'betting_car');
+            return hix(24,25,'betting_car');
             break;
         case 416:
-            hix(25,26,'betting_car');
+            return hix(25,26,'betting_car');
             break;
         case 417:
-            hix(26,27,'betting_car');
+            return hix(26,27,'betting_car');
             break;
         case 418:
-            hix(27,28,'betting_car');
+            return hix(27,28,'betting_car');
             break;
         case 419:
         case 422:
-            hix(10,15,'betting_car');
+            return hix(10,15,'betting_car');
             break;
         case 424:
-            hix(10,11,'betting_car');
+            return hix(10,11,'betting_car');
             break;
         case 425:
-            hix(10,12,'betting_car');
+            return hix(10,12,'betting_car');
             break;
         case 427:
-            hix(10,13,'betting_car');
+            return hix(10,13,'betting_car');
             break;
         case 429:
-            hix(10,11,'betting_car_size');
+            return hix(10,11,'betting_car_size');
             break;
         case 432:
-            hix(10,11,'betting_car_single');
+            return hix(10,11,'betting_car_single');
             break;
         case 430:
-            hix(11,12,'betting_car_size');
+            return hix(11,12,'betting_car_size');
             break;
         case 433:
-            hix(11,12,'betting_car_single');
+            return hix(11,12,'betting_car_single');
             break;
         case 431:
         case 456:
         case 457:
-            hix(12,13,'betting_car_size');
+            return hix(12,13,'betting_car_size');
             break;
         case 434:
         case 458:
         case 459:
-            hix(12,13,'betting_car_single');
+            return hix(12,13,'betting_car_single');
             break;
         case 435:
-            hix(61,62);
+            return hix(61,62);
             break;
     }
 }
